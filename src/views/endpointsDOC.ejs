@@ -1,0 +1,29 @@
+<%- include('header') -%>
+
+    <div class="container text-center">
+
+        <h3>Welcome to Article Master dashboard - Endpoint DOC section</h3>
+
+        <div class="row my-5">
+            <a href="/route/dashboard" class='btn btn-warning'>Go back~</a>
+
+        </div>
+
+        <div class="row">
+            <div class="col-4 border border-3 h5">API</div>
+            <div class="col-6 border border-3 h5">What it does</div>
+            <div class="col-4 border"><a href="/route/getAll">http://localhost:3000/route/getAll</a></div>
+            <div class="col-6 border">Fetch this to get <b>all</b> avalible recipes as na array containing recipes objects. </div>
+            <div class="col-4 border"><a href="/route/getSingle">http://localhost:3000/route/getSingle/<i>id</i></a></div>
+            <div class="col-6 border">Fetch this to get <b>singular</b> recipe as na singular object. 
+                To define which recipe you want replace the '<i>id</i>' with any number. 
+                <% if(locals.howMany){ %>
+                    There is <%= locals.howMany %> recipes avalible at the moment.
+                <% } %>
+            </div>
+        </div>
+    </div>
+    
+    
+
+<%- include('footer') -%>

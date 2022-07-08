@@ -1,0 +1,29 @@
+<%- include('header') -%>
+
+<div class="market-background">
+    <div class="container my-3 text-center w-25">
+        <h2>Simple page with Recipees</h2>
+        <% if(locals.logout){ %>
+            <div class="border text-center">
+                Logged out succesfully
+            </div>
+        <% } %>
+        <h4>Login to get access to your favourite recipes!</h4><br>
+        <form action="/route/login" method="post">
+            <div class="row text-center">
+                <label for="uname"><b>Username</b></label>
+                <input type="text" placeholder="Enter Username" name="uname" required>
+        
+                <label for="psw" ><b>Password</b></label>
+                <input type="password" placeholder="Enter Password" name="psw" required>
+            </div>
+              
+        
+              <button type="submit" class='btn btn-success my-2 px-5'>Login</button>
+        
+        </form> 
+    </div>
+</div>
+
+<%- include('footer') -%>
+    

@@ -1,0 +1,44 @@
+<%- include('header') -%>
+
+<div class="container text-center">
+    <h3>Welcome to Article Master dashboard - Edit Recipe~ Section</h3>
+
+    <div class="row my-5">
+        <a href="/route/dashboard" class='col-3 btn btn-warning text-center'>Go back~</a> 
+        <div class="col-9 border text-center go-back-add">Edit your ~recipes~</div>
+    </div>
+
+    <% print.forEach(function (recipe) { %>
+        
+        <form action="/route/updateRecipe/<%= recipe.recipe_id %>" method='post'>
+            <div class="row text-center">
+                <div class="col-2 border table-head "> <b>Dish Name:</b></div>
+                <div class="col-5 border table-info recipe-name"><%= recipe.recipe_name %></div>
+                <input name='recipeName' type="text" class='col-5 border' value='<%= recipe.recipe_name %>'>
+
+                <div class="col-2 border table-head"> <b>Recipe Ingridients:</b> </div>
+                <div class="col-5 border table-info"><%= recipe.recipe_ingridients %></div>
+                <textarea name="recipeIngridients" class="col-5 border" cols="30" rows="8" placeholder='Seperate your igridients with ","...'><%= recipe.recipe_ingridients %></textarea>
+
+                <div class="col-2 border table-head"> <b>Recipe Description:</b> </div>
+                <div class="col-5 border table-info"><%= recipe.recipe_description %></div>
+                <textarea name='recipeDescription' class="col-5 border" cols="30" rows="8" placeholder='Make new paragraphs with "/"...'><%= recipe.recipe_description %></textarea>
+
+                <div class="col-2 border table-head"> <b>Recipe Instruction:</b> </div>
+                <div class="col-5 border table-info"><%= recipe.recipe_instruction %></div>
+                <textarea name='recipeInstruction' class="col-5 border" cols="30" rows="8" placeholder='Seperate instructions with "/"...'><%= recipe.recipe_instruction %></textarea>
+                
+                <div class="col-2 border table-head"> <b>Recipe photo URL:</b> </div>
+                <div class="col-5 border table-info"><%= recipe.recipe_photo %></div>
+                <input name='recipePictureUrl' type="text" class='col-5 border' value='<%= recipe.recipe_photo %>'>
+
+                <button type="submit" class='btn btn-primary col-12'>Submit changes</button>
+            </div><br>
+        </form>                           
+    <% }) %>
+
+    
+</div>
+
+
+<%- include('footer') -%>

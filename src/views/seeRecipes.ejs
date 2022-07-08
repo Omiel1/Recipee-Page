@@ -1,0 +1,76 @@
+<%- include('header') -%>
+
+<div class="container">
+    <h3 class='text-center'>Welcome to Article Master dashboard - See Through all of the recipes</h3>
+
+    <div class="row my-5">
+        <a href="/route/dashboard" class='col-3 btn btn-warning text-center'>Go back~</a>
+        <div class="col-9 border text-center go-back-add">See all of the avalible recipes</div>
+    </div>
+
+    <div class="row justify-content-end">
+        <form action="/route/allSearch" method='post'>
+                <input type="text" placeholder='Here goes dish name...' name='searchField'>
+                <button type="submit" class='btn btn-success'>Search for recipe by it's name</button>
+        </form>
+    </div>
+    <% if(locals.print){ %>
+        <% print.forEach(function (recipe) { %>
+            <div class="row px-0 border border-4 my-4">
+                <div class="dish-name col-12 border text-center recipe-name">
+                    <%= recipe.recipe_name %>
+                </div>
+
+                <div class="dish-picture col-4 border">
+                    <img src='<%= recipe.recipe_photo %>' alt="No Image found..." class='img img-responsive img-fluid'>
+                </div>
+
+                <div class="dish-ingridients col-3 border text-center recipe-ingridients">
+                    <%= recipe.recipe_ingridients %>
+                </div>
+
+                <div class="dish-description col-5 border text-center">
+                    <%= recipe.recipe_description %>
+                </div>
+
+                <div class=" col-12 border dish-instruction text-left">
+                    <%= recipe.recipe_instruction.split(',') %>
+                </div>
+            </div><br>
+
+        <% }) %>
+    <% } %>
+</div>
+
+<script>
+    var result = "";
+
+//Formating ingridients list
+document.querySelectorAll(".row .dish-ingridients").forEach(el => {
+    el.innerHTML.split(",").forEach(splitText => {
+    result += "<br>" + splitText;
+    });
+    el.innerHTML = result + "<br><br>";
+    result = "";
+});
+
+//Formating descriptions
+document.querySelectorAll(".row .dish-description").forEach(el => {
+    el.innerHTML.split("/").forEach(splitText => {
+    result += "<br>" + splitText + ".";
+    });
+    el.innerHTML = result.slice(0, -1);
+    result = "";
+});
+
+//Formating instructions
+document.querySelectorAll(".row .dish-instruction").forEach(el => {
+    el.innerHTML.split("/").forEach(splitText => {
+    result += "<br>" + splitText;
+    });
+    el.innerHTML = result.slice(0, -1) + "<br>";
+    result = "";
+});
+</script>
+
+<%- include('footer') -%>

@@ -1,0 +1,34 @@
+<%- include('header') -%>
+
+<div class="container text-center">
+    <h3>Welcome to Article Master dashboard - Add Recipe Section</h3>
+
+    <div class="row my-5">
+        <a href="/route/dashboard" class='col-3 btn btn-warning text-center'>Go back~</a>
+        <div class="col-9 border go-back-add">Add your own Recipe~</div>
+    </div>
+    
+    <form action="/route/addYourRecipe" method="post">
+        <div class="row">
+            <div class="col-3 border py-2 table-head"> <b>Dish name:</b> </div>
+            <input name="recipeName" type="text" class='col-9 border' placeholder="Dish name..." required>
+
+            <div class="col-3 border table-head"> <b>Describe your dish:</b> </div>
+            <textarea name="recipeDescription" class="col-9 border" cols="30" rows="8" placeholder='Make new paragraphs with "/"...'></textarea>
+        
+            <div class="col-3 border table-head"> <b>Ingridients:</b> </div>
+            <textarea name="recipeIngridients" class="col-9 border" cols="30" rows="8" placeholder='Seperate your igridients with ","...'></textarea>
+
+            <div class="col-3 border table-head"> <b>How To Make Your Dish:</b> </div>
+            <textarea name="recipeInstruction" class="col-9 border" cols="30" rows="8" placeholder='Seperate instructions with "/"...'></textarea>
+            
+            <div class="col-3 border py-2 table-head"> <b>Dish Picture:</b> </div>
+            <input name="recipePictureUrl" type="text" class="col-9 border" placeholder="Copy URL of your picture" required>
+
+            <button type="submit">Submit</button>
+        </div>
+    </form>
+    
+</div>
+
+<%- include('footer') -%>

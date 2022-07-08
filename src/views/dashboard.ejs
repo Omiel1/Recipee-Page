@@ -1,0 +1,29 @@
+<%- include('header') -%>
+
+<div class="container text-center">
+    <h1 class='my-4'>Welcome to Article Master dashboard</h1>
+    <h4>Hello <%= locals.user %> ~</h4>
+
+    <div class="row bg bg-succes border border-succes">
+        <%= locals.message ? message:'' %>
+    </div>
+
+    <div class="row my-5 choices">
+        <% if(locals.userPriv == 0) { %>
+            <a href="/route/end" class='col-2 border btn btn-info'>DOC - Endpoints</a>
+            <a href="/route/add" class='col-2 border btn btn-info'>Add new recipe</a>
+            <a href="/route/edit" class='col-2 border btn btn-info'>Edit my recipes</a>
+            <a href="/route/logout" class='col-6 border btn-danger'>Logout</a>
+        <% } %>
+    
+        <% if(locals.userPriv == 1) { %>
+            <a href="/route/all" class='col-2 border btn btn-info'>Look through recipes</a> 
+            <a href="/route/end" class='col-2 border btn btn-info'>DOC - Endpoints</a>
+            <a href="/route/add" class='col-2 border btn btn-info'>Add new recipe</a>
+            <a href="/route/edit" class='col-2 border btn btn-info'>Edit my recipes</a>
+            <a href="/route/logout" class='col-4 border btn-danger'>Logout</a>
+        <% } %>
+    </div>
+</div>
+
+<%- include('footer') -%>

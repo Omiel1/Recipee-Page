@@ -1,0 +1,38 @@
+========Tekst========
+Jako że nie moge bezpośrednio eksportować bazy danych załączam komendy do stworzenia bazy danych.
+
+Baza mySQL była robiona przy pomocy XAMPP'a i myPhpAdmin.
+
+
+========Komendy========
+
+
+CREATE TABLE Userbase (
+    userID int PRIMARY KEY AUTO_INCREMENT,
+    username varchar(30) not null,
+    userPswd varchar(20) not null,
+    userPrivilages varchar(1) not null
+);
+
+CREATE TABLE Recipes (
+    recipe_id int PRIMARY KEY AUTO_INCREMENT,
+    userID int,
+    recipe_ingridients varchar(1028) not null,
+    recipe_instruction varchar(4096) not null,
+    recipe_description varchar(2048) not null,
+    recipe_name varchar(128) not null,
+    recipe_photo varchar(512) not null,
+    FOREIGN KEY (userID) REFERENCES userbase(userID)
+);
+
+insert into userbase (username, userPswd, userPrivilages) values ("adminadmin", "adminadmin", 1);
+insert into userbase (username, userPswd, userPrivilages) values ("normalGal", "12345", 0);
+insert into userbase (username, userPswd, userPrivilages) values ("useruser", "useruser", 0);
+
+INSERT INTO `recipes` (`recipe_id`, `userID`, `recipe_ingridients`, `recipe_instruction`, `recipe_description`, `recipe_name`, `recipe_photo`) VALUES (NULL, '1', 'bd baguette, 2 romaine lettuce hearts, 50 g olives (pitted), 50 g cherry tomatoes, 50 g cucumber3 eggs (divided), 2 anchovy fillets,1 clove garlic, 1 tsp lemon juice, 1 tsp Worcestershire sauce, 1 tbsp mustard, 1 tbsp white balsamic vinegar, 140 ml olive oil (divided), 20 g Parmesan,1 tspsugar, salt, pepper', '1.Preheat the oven to 180F For the bread chips, cut the baguette into thin slices and distribute on a lined baking tray./\r\n2.Drizzle the slices with olive oil and bake in preheated oven at 180C/350F./\r\n3.Shift the aplles onto the trees!/\r\n2.Make them fall until they keep theit sweet realease~/', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent tincidunt sit amet augue dignissim bibendum. Suspendisse potenti. Phasellus rutrum risus tortor, vulputate lobortis nibh vestibulum vel. Donec eu malesuada justo, ac aliquam dui. Vivamus vitae dui et lacus lacinia pretium eu at justo. Aenean consequat accumsan mattis. Vivamus pretium sed turpis nec feugiat.', 'Salad d', 'https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.desifiesta.com%2Fwp-content%2Fuploads%2F2014%2F02%2FIsraelisalad2-1.jpg&f=1&nofb=1');
+
+INSERT INTO `recipes` (`recipe_id`, `userID`, `recipe_ingridients`, `recipe_instruction`, `recipe_description`, `recipe_name`, `recipe_photo`) VALUES (NULL, '2', 'Inventore, numquam, unde, sed, aut, dicta, enim, maiores, beatae, Quidem, est, vero, dolore, similique, qui, in, dolorum, omnis', '1.At placeat quibusdam deleniti occaecati excepturi voluptate. /\r\n2.Neque excepturi molestiae dolore doloribus nesciunt eius. /\r\n3.Neque excepturi molestiae dolore doloribus nesciunt eius. /\r\n4.Necessitatibus minus maiores expedita sapiente animi minima nesciunt sunt. ', 'Ea debitis vel occaecati eum quos voluptates. Magnam quod vitae perspiciatis reiciendis in. Perferendis pariatur corporis natus labore. Enim voluptatibus quam aut qui qui voluptas mollitia voluptates. Molestiae possimus distinctio unde praesentium./\r\n\r\nEa debitis vel occaecati eum quos voluptates. Magnam quod vitae perspiciatis reiciendis in. Perferendis pariatur corporis natus labore. Enim voluptatibus quam aut qui qui voluptas mollitia voluptates. Molestiae possimus distinctio unde praesentium.', 'Ea debitis vel ', 'https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2F1.bp.blogspot.com%2F-9mgNO8x45Pw%2FXaMISEMnFoI%2FAAAAAAAA4eA%2Ft49U7cgtQD8dy85UOy8X1fzzPDoDQu5_wCLcBGAsYHQ%2Fs1600%2FIMG_2144%252B4.JPG&f=1&nofb=1');
+
+INSERT INTO `recipes` (`recipe_id`, `userID`, `recipe_ingridients`, `recipe_instruction`, `recipe_description`, `recipe_name`, `recipe_photo`) VALUES (NULL, '1', 'Sausages1, Sussy2,\r\nSoul 4', 'Sausages5, Sausages6, Sausages7, Sausages8', 'Sausages2, Sausages3, Sausages4.\r\nSausage.\r\nSausaus, soso, and so.', 'Sausages', 'Sausages.url');
+
+INSERT INTO `recipes` (`recipe_id`, `userID`, `recipe_ingridients`, `recipe_instruction`, `recipe_description`, `recipe_name`, `recipe_photo`) VALUES (NULL, '1', 'any fish 200g,\r\ntomato soup 500ml,\r\n5 tomatos,\r\n5 apples,\r\n6 bananas,\r\n10 peanuts,\r\na lot of determination ', '1.Inventore numquam unde sed aut dicta enim maiores beatae. Quidem est vero dolore similique qui in dolorum omnis. Sed ut et sit mollitia delectus fugit. Quod numquam perspiciatis quia aspernatur. Dolor nesciunt minus rerum ab totam et nesciunt. Et vero animi veniam porro id quaerat./\r\n\r\n2.Inventore numquam unde sed aut dicta enim maiores beatae. Quidem est vero dolore similique qui in dolorum omnis. Sed ut et sit mollitia delectus fugit. Quod numquam perspiciatis quia aspernatur. Dolor nesciunt minus rerum ab totam et nesciunt. Et vero animi veniam porro id quaerat./\r\n\r\n3.Inventore numquam unde sed aut dicta enim maiores beatae. Quidem est vero dolore similique qui in dolorum omnis. Sed ut et sit mollitia delectus fugit. Quod numquam perspiciatis quia aspernatur./', 'Inventore numquam unde sed aut dicta enim maiores beatae. \r\nQuidem est vero dolore similique qui in dolorum omnis. /Sed ut et sit mollitia delectus fugit. /Quod numquam perspiciatis quia aspernatur. Dolor nesciunt minus rerum ab totam et nesciunt. Et vero animi veniam porro id quaerat.', 'Wonderfull Recipe By Armando', 'https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.Jl0MvhYVN6vw80A-1cuS0gHaFW%26pid%3DApi&f=1'); 
